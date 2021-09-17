@@ -65,7 +65,7 @@ function listAlarm() {
     alarms.sort((cur, next) => cur.timeSort - next.timeSort)
 
     for (i in alarms) {
-        htmlAlarm += `<p>Hora: ${alarms[i].time} Descrição: ${alarms[i].description} <button onclick='delAlarm(${i})'>Del</button></p>`;
+        htmlAlarm += `<p>Hora: ${alarms[i].time} Descrição: ${alarms[i].description} <button onclick='delAlarm(${i})'><img src='trash.png' alt='trash' class='trash'></button></p>`;
     }
     hAlarm.innerHTML = htmlAlarm;
 }
