@@ -65,6 +65,10 @@ function verifyAl() {
         let element = alarms.find(al => al.time == hNow)
         //toca o alarme
         console.log(element.description)
+        snd.play();
+        setTimeout(function stopAlarm() {
+            snd.pause();
+          }, 5000)
     }
 }
 
