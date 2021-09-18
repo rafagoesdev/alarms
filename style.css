@@ -1,4 +1,52 @@
+body {
+    height: 95vh;
+    background-color: #141E2D;
+    font-size: 1.2em;
+    font-family: 'Calibri';
+}
+
+input {
+    padding: 5px;
+    border-radius: 5px;
+    height: 2em;
+}
+
+button {
+    background-color: #EEDBCC;
+    border-radius: 5px;
+    padding: 5px;
+    height: 2em;
+
+}
+
+.container {
+    background-color: #283D5A;
+    height: 95vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    align-content: stretch;
+    color: #FDFDFD;
+}
+
+.sidebar {
+    display: flex;
+}
+.form {
+    margin-top: 30px;
+}
+.alarms button{
+    position:absolute;
+    /* right:0px; */
+}
 .trash {
     height: 15px;
-    width: 15px;
+    width: 15px;  
+}
+.timeNow {
+    justify-self: center;
+    align-self: center;
+    font-size: 6em;
+    font-family: 'Arial Rounded MT Bold';
 }

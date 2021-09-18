@@ -4,6 +4,7 @@ const hAlarm = document.getElementById("alarms");
 const tDisplay = document.getElementById("time-display");
 const snd =  new Audio("alarm.wav");
 
+//Alarm constructor
 class alarm {
     constructor(time, description) {
         this.time = time;
@@ -11,13 +12,11 @@ class alarm {
         this.timeSort = parseInt(`${time.replace(":","")}`);      
     }
 }
-// function alarm(time, description) {
-//     this.time = time;
-//     this.description = description
-// }
 
+//Alarm array
 const alarms = [];
 
+//Set alarm
 function setAlarm() {
     time = tAlarm.value;
     
@@ -28,7 +27,13 @@ function setAlarm() {
 
     listAlarm();
 }
+document.addEventListener('keypress', function(e){
+    if(e.which == 13){
+       setAlarm();
+    }
+ }, false);
 
+//Clock refresh and call verify alarm on 00 second
 function hour(){
     let now = new Date;
     let hour = now.getHours();
@@ -38,13 +43,16 @@ function hour(){
     minute < 10 ? minute = `0${minute}` : false;
     second < 10 ? second = `0${second}` : false;
     tDisplay.innerHTML = `${hour}:${minute}:${second}`
-
+    
     //play alarm
     if (second == 00) {
         verifyAl();
     }
 }
+//Call refresh Clock second by second
+setInterval(hour, 1000)
 
+//Alarm delete
 function delAlarm(i) {
     alarms.splice(i, 1)
     listAlarm()
@@ -60,6 +68,7 @@ function verifyAl() {
     }
 }
 
+//List alarms sorting by hour
 function listAlarm() {
     let htmlAlarm = ''
     alarms.sort((cur, next) => cur.timeSort - next.timeSort)
@@ -69,5 +78,3 @@ function listAlarm() {
     }
     hAlarm.innerHTML = htmlAlarm;
 }
-
-setInterval(hour, 1000)

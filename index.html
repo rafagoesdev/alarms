@@ -4,12 +4,15 @@
     </head>
     <body>
         <div class="container">
-            <div class="form">
-                <input type="time" name="" id="tAlarm">
-                <input type="text" name="" id="dAlarm">
-                <button onclick="setAlarm()">Adicionar</button>
+            <div class="side-bar">
+
+                <div class="form">
+                    <input type="time" name="" id="tAlarm">
+                    <input type="text" name="" id="dAlarm">
+                    <button onclick="setAlarm()">Adicionar</button>
+                </div>
+                <div id="alarms"></div>
             </div>
-            <div id="alarms"></div>
             <div class="timeNow">
                 <p id="time-display">00:00:00</p>
             </div>
