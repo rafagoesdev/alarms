@@ -1,8 +1,7 @@
 body {
     height: 95vh;
     background-color: #141E2D;
-    font-size: 1.2em;
-    font-family: 'Calibri';
+    font-family: 'Open Sans', sans-serif;
 }
 
 input {
@@ -36,8 +35,10 @@ button {
 .form {
     margin-top: 30px;
 }
-.alarms button{
-    position:absolute;
+#alarms button{
+    float: right;
+    margin-right: 10em;
+    /* margin-left: auto; */
     /* right:0px; */
 }
 .trash {
@@ -49,4 +50,70 @@ button {
     align-self: center;
     font-size: 6em;
     font-family: 'Arial Rounded MT Bold';
+}
+
+/* Modal */
+
+.content {
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: #eee;
+    padding: 10px;
+}
+
+.btn {
+    background-color: rgb(33, 156, 70);
+    padding: 5px 10px 5px 10px;
+    border: 2px solid rgb(4, 92, 30);
+    cursor: pointer;
+    transition: background .3s;
+    border-radius: 5px;
+    color: #FFF;
+}
+
+.btn:hover {
+    background-color: rgb(4, 92, 30);
+}
+
+.btn:active {
+    background-color: rgb(129, 255, 166);
+    color: rgb(4, 92, 30);
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, .8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+
+.modal-content {
+    margin: 0 auto;
+    margin-top: 5%;
+    max-width: 600px;
+    background-color: #eee;
+    padding: 0;
+    border-radius: 50px;
+    box-shadow: 0 0 2px #fff;
+    text-align: center;
+}
+
+.modal-header h1{
+    font-weight: bold;
+    text-align: center;
+}
+
+.modal-header, .modal-body, .modal-footer{
+    padding: 10px;
+}
+
+.modal-header{
+    background-color: #ccc;
+}
+
+.modal-footer{
+    background-color: #ccc;
 }

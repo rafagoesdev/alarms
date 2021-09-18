@@ -59,11 +59,17 @@ function delAlarm(i) {
 }
 
 function verifyAl() {
+    
     let hNow = new Date;
     hNow = `${hNow.getHours()}:${hNow.getMinutes()}`
+    const mTitle = document.getElementById("modal-title")
+    const mText = document.getElementById("modal-text")
     if (alarms.some(al => al.time == hNow)) {
         let element = alarms.find(al => al.time == hNow)
         //toca o alarme
+        mTitle.innerHTML = hNow
+        mText.innerHTML = element.description
+        openModal('dv-modal')
         console.log(element.description)
         snd.play();
         setTimeout(function stopAlarm() {
@@ -81,4 +87,26 @@ function listAlarm() {
         htmlAlarm += `<p>Hora: ${alarms[i].time} Descrição: ${alarms[i].description} <button onclick='delAlarm(${i})'><img src='trash.png' alt='trash' class='trash'></button></p>`;
     }
     hAlarm.innerHTML = htmlAlarm;
+}
+
+// Modal
+
+function openModal(mn) {
+ const modal = document.getElementById(mn);
+
+    if (typeof modal == 'undefined' || modal === null)
+        return;
+
+    modal.style.display = 'Block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(mn) {
+    const modal = document.getElementById(mn);
+
+    if (typeof modal == 'undefined' || modal === null)
+        return;
+
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
 }
