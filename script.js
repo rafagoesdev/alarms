@@ -18,6 +18,11 @@ if (localStorage.getItem("alarms")) {
     let a = localStorage.getItem("alarms");
     var alarms = JSON.parse(a);
     listAlarm()
+    const mTitle = document.getElementById("modal-title")
+    const mText = document.getElementById("modal-text")
+    mTitle.innerHTML = "Habilitar som de alarmes"
+    mText.innerHTML = "Fechar para habilitar alarmes gravados"
+    openModal('dv-modal')
 }
 else {
     var alarms = [];
@@ -70,7 +75,11 @@ function delAlarm(i) {
 function verifyAl() {
     
     let hNow = new Date;
-    hNow = `${hNow.getHours()}:${hNow.getMinutes()}`
+    hourNow = hNow.getHours()
+    minNow = hNow.getMinutes()
+    hourNow < 10 ? hourNow = `0${hourNow}` : false;
+    minNow < 10 ? minNow = `0${minNow}` : false;
+    hNow = `${hourNow}:${minNow}`
     const mTitle = document.getElementById("modal-title")
     const mText = document.getElementById("modal-text")
     if (alarms.some(al => al.time == hNow)) {
@@ -119,4 +128,5 @@ function closeModal(mn) {
 
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    snd.pause()
 }
