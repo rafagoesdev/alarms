@@ -56,7 +56,8 @@ function hour(){
         verifyAl();
     }
 }
-//Call refresh Clock second by second
+//Call clock and refresh second by second
+hour()
 setInterval(hour, 1000)
 
 
