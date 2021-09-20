@@ -13,8 +13,15 @@ class alarm {
     }
 }
 
-//Alarm array
-const alarms = [];
+//Alarm array - if user has storage of alarms, call and list that, else start alarms array
+if (localStorage.getItem("alarms")) {
+    let a = localStorage.getItem("alarms");
+    var alarms = JSON.parse(a);
+    listAlarm()
+}
+else {
+    var alarms = [];
+}
 
 //Set alarm
 function setAlarm() {
@@ -52,6 +59,7 @@ function hour(){
 //Call refresh Clock second by second
 setInterval(hour, 1000)
 
+
 //Alarm delete
 function delAlarm(i) {
     alarms.splice(i, 1)
@@ -84,9 +92,10 @@ function listAlarm() {
     alarms.sort((cur, next) => cur.timeSort - next.timeSort)
 
     for (i in alarms) {
-        htmlAlarm += `<p>Hora: ${alarms[i].time} Descrição: ${alarms[i].description} <button onclick='delAlarm(${i})'><img src='trash.png' alt='trash' class='trash'></button></p>`;
+        htmlAlarm += `<p>${alarms[i].time} - ${alarms[i].description} <button onclick='delAlarm(${i})'><img src='trash.png' alt='trash' class='trash'></button></p>`;
     }
     hAlarm.innerHTML = htmlAlarm;
+    localStorage.setItem("alarms", JSON.stringify(alarms)) //store alarms on cache
 }
 
 // Modal
