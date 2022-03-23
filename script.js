@@ -91,7 +91,7 @@ function verifyAl() {
         console.log(element.description)
         snd.play();
         setTimeout(function stopAlarm() {
-            snd.pause();
+            snd.stop();
           }, 5000)
     }
 }
