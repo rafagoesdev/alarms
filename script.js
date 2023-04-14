@@ -128,5 +128,5 @@ function closeModal(mn) {
 
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
-    snd.pause()
+    snd.stop()
 }
