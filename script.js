@@ -92,7 +92,7 @@ function verifyAl() {
         snd.play();
         setTimeout(function stopAlarm() {
             snd.stop();
-          }, 5000)
+          }, 3000)
     }
 }
 
