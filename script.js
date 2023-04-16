@@ -89,6 +89,7 @@ function verifyAl() {
         mText.innerHTML = element.description
         openModal('dv-modal')
         console.log(element.description)
+        snd.currentTime = 0; //define som para início
         snd.play();
         setTimeout(function stopAlarm() {
             snd.stop();
@@ -128,5 +129,5 @@ function closeModal(mn) {
 
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
-    snd.stop()
+    snd.pause() //pausa som ao fechar modal
 }
